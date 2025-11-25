@@ -1,45 +1,67 @@
 # QR Demo Frontend
 
-Frontend application for QR Demo.
+A professional Next.js frontend application for submitting batch numbers and email addresses with a beautiful purple theme matching the admin dashboard.
 
-## Tech Stack
+## Features
 
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- Lucide Icons
-- Axios
-- TanStack Query
+- 🎨 Modern UI with Tailwind CSS
+- 💜 Purple theme matching admin dashboard
+- 📧 Email and Batch Number form submission
+- ✅ Form validation and success/error messages
+- 📱 Fully responsive design
+- 🎯 Lucide icons integration
 
 ## Getting Started
 
-1. Install dependencies:
+### Install Dependencies
+
 ```bash
 npm install
 ```
 
-2. Set up environment variables:
-```bash
-cp .env.example .env
-```
+### Run Development Server
 
-3. Run the development server:
 ```bash
 npm run dev
 ```
 
-## Available Scripts
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+## Project Structure
 
-## Adding Shadcn Components
+```
+QR_demo_frontend/
+├── app/
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Main form page
+│   └── globals.css        # Global styles
+├── package.json
+├── tailwind.config.js
+└── tsconfig.json
+```
 
-To add new Shadcn components, use:
-```bash
-npx shadcn@latest add [component-name]
+## Form Fields
+
+- **Email Address**: Validated email input
+- **Batch Number**: Text input for batch number
+
+## Technologies Used
+
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- Lucide React Icons
+
+## API Integration
+
+To connect to your backend API, update the `handleSubmit` function in `app/page.tsx`:
+
+```typescript
+const response = await fetch('/api/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, batchNo }),
+})
 ```
 
